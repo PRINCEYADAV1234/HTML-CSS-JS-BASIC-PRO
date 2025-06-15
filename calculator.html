@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator using html css or js</title>
+    <style>
+        .container{
+            margin: 0 35vw;
+            background-color: black;
+            border-radius: 20px;
+            text-align: center;
+        }
+        button{
+            border-radius: 50%;
+            padding: 20px;
+            margin: 15px;
+            font-size: 15px;
+            color: black;
+            border: 1px solid grey;
+        }
+
+        input{
+            padding: 20px;
+            color: white;
+            border: none;
+            text-align: start;
+            margin: 30px 0px;
+            font-size: 1.5rem;
+            background-color: black;
+            border-radius: 10px;
+        }
+
+
+        .orange{
+            background-color: orange;
+        }
+
+/*
+        @media (max-width:1200px) {
+           .container{
+            margin: 0;w
+            background  : none;
+           } 
+           input{
+           background-color: white;
+           color: black;
+           }
+        }  */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="screen" disabled >
+        <div class="row_1">
+            <button onclick="screen.value += '%' "  class="orange"> % </button>
+            <button onclick="screen.value = screen.value.slice(0,(screen.value.length)-1)" class="orange"> CE </button>
+            <button onclick="screen.value = '' "  class="orange"> C </button>
+            <button onclick="screen.value += '/' "  class="orange"> / </button>
+        </div>
+        <div class="row_2">
+            <button onclick="screen.value += '7'" > 7 </button>
+            <button onclick="screen.value += '8'" > 8 </button>
+            <button onclick="screen.value += '9'" > 9 </button>
+            <button onclick="screen.value += '*'" class="orange"> * </button>
+        </div>
+        <div class="row_3">
+            <button onclick=" screen.value += '4'" > 4 </button>
+            <button onclick=" screen.value += '5'" > 5 </button>
+            <button onclick=" screen.value += '6'" > 6 </button>
+            <button onclick=" screen.value += '-'" class="orange"> - </button>
+        </div>
+        <div class="row_4">
+            <button onclick="screen.value += '1'" > 1 </button>
+            <button onclick="screen.value += '2'" > 2 </button>
+            <button onclick="screen.value += '3'" > 3 </button>
+            <button onclick="screen.value += '+'" class="orange"> + </button>
+        </div>
+        <div class="row_5">
+            <button onclick="screen.value += '0'" > 0 </button>
+            <button onclick="screen.value += '00'" > 00 </button>
+            <button onclick="screen.value += '.'" > . </button>
+            <button onclick="screen.value = eval(screen.value)" class="orange" > = </button>
+        </div>
+    </div>
+    <script>
+        let screen=  document.getElementById("screen")
+    </script>
+</body>
+</html>

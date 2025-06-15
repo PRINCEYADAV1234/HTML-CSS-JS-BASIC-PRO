@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic tac toe game in html css js</title>
+    <style>
+      * {
+        background: #020024;
+        background: linear-gradient(
+          90deg,
+          rgba(2, 0, 36, 1) 0%,
+          rgba(9, 9, 121, 1) 35%,
+          rgba(0, 212, 255, 1) 100%
+        );
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .container {
+        text-align: center;
+      }
+      h2 {
+        text-align: center;
+        color: hotpink;
+        text-decoration: underline;
+      }
+
+      .row_1 {
+        display: flex;
+        margin-left: 35vw;
+        background: none;
+      }
+      .row_2 {
+        display: flex;
+        margin-left: 35vw;
+        background: none;
+      }
+      .row_3 {
+        display: flex;
+        margin-left: 35vw;
+        background: none;
+      }
+      #block_1 {
+        height: 15vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 7vw;
+        margin: 20px;
+        size: 30cm;
+        border-radius: 10px;
+        color: purple;
+        background: white;
+      }
+      #block_2 {
+        height: 15vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 7vw;
+        margin: 20px;
+        border-radius: 10px;
+        color: purple;
+        background: white;
+      }
+      #block_3 {
+        height: 15vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 7vw;
+        margin: 20px;
+        border-radius: 10px;
+        color: purple;
+        background: white;
+      }
+      #block_4 {
+        height: 15vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 7vw;
+        margin: 20px;
+        border-radius: 10px;
+        color: purple;
+        background: white;
+      }
+      #block_5 {
+        height: 15vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 7vw;
+        margin: 20px;
+        border-radius: 10px;
+        color: purple;
+        background: white;
+      }
+      #block_6 {
+        height: 15vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 7vw;
+        margin: 20px;
+        border-radius: 10px;
+        color: purple;
+        background: white;
+      }
+      #block_7 {
+        height: 15vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 7vw;
+        margin: 20px;
+        border-radius: 10px;
+        color: purple;
+        background: white;
+      }
+      #block_8 {
+        height: 15vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 7vw;
+        margin: 20px;
+        border-radius: 10px;
+        color: purple;
+        background: white;
+      }
+      #block_9 {
+        height: 15vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 7vw;
+        margin: 20px;
+        border-radius: 10px;
+        color: purple;
+        background: white;
+      }
+      #reset {
+        border: none;
+        padding: 15px 30px;
+        margin: 15px;
+        background: brown;
+        color: dodgerblue;
+        border-radius: 10px;
+      }
+      #reset:hover {
+        background: gold;
+        color: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Tic Tac Toe</h2>
+    <div class="container">
+      <div class="row_1">
+        <div id="block_1" onclick="x_o_1()"></div>
+        <div id="block_2" onclick="x_o_2()"></div>
+        <div id="block_3" onclick="x_o_3()"></div>
+      </div>
+
+      <div class="row_2">
+        <div id="block_4" onclick="x_o_4()"></div>
+        <div id="block_5" onclick="x_o_5()"></div>
+        <div id="block_6" onclick="x_o_6()"></div>
+      </div>
+
+      <div class="row_3">
+        <div id="block_7" onclick="x_o_7()"></div>
+        <div id="block_8" onclick="x_o_8()"></div>
+        <div id="block_9" onclick="x_o_9()"></div>
+      </div>
+      <button id="reset" onclick="reset()">Reset</button>
+    </div>
+
+    <script>
+      let block_1 = document.getElementById("block_1")
+      let block_2 = document.getElementById("block_2")
+      let block_3 = document.getElementById("block_3")
+      let block_4 = document.getElementById("block_4")
+      let block_5 = document.getElementById("block_5")
+      let block_6 = document.getElementById("block_6")
+      let block_7 = document.getElementById("block_7")
+      let block_8 = document.getElementById("block_8")
+      let block_9 = document.getElementById("block_9")
+
+      let currplayer = 'X'
+      x_o_1=()=>{
+        if(currplayer !== ' ') return;
+          block_1.innerHTML = "X"
+          if(currplayer == 'X'){
+          block_1.innerHTML = "O"
+          }
+        
+        else if (currplayer == "O") {
+          currplayer = "X";
+        }
+      }
+      x_o_2=()=>{
+        if(currplayer !== ' ')return;
+          block_2.innerHTML = "X"
+            if(currplayer == 'X'){
+          block_2.innerHTML = "O"
+          }
+        
+         else if (currplayer == "O") {
+          currplayer = "X";
+        }
+      }
+      x_o_3=()=>{
+        if(currplayer !== ' ')return;
+          block_3.innerHTML = "X"
+            if(currplayer == 'X'){
+          block_3.innerHTML = "O"
+          }
+        
+       else if (currplayer == "O") {
+          currplayer = "X";
+        }
+      }
+      x_o_4=()=>{
+        if(currplayer !== ' ')return;
+          block_4.innerHTML = "X"
+            if(currplayer == 'X'){
+          block_4.innerHTML = "O"
+          }
+        
+       else if (currplayer == "O") {
+          currplayer = "X";
+        }
+      }
+    
+      x_o_5=()=>{
+        if(currplayer !== ' ')return;
+          block_5.innerHTML = "X"
+            if(currplayer == 'X'){
+          block_5.innerHTML = "O"
+          
+        }
+       else if (currplayer == "O") {
+          currplayer = "X";
+        }
+
+      }
+      x_o_6=()=>{
+        if(currplayer !== ' ')return;
+          block_6.innerHTML = "X"
+            if(currplayer == 'X'){
+          block_6.innerHTML = "O"
+          }
+        
+      else if (currplayer == "O") {
+          currplayer = "X";
+        }
+
+      }
+      x_o_7=()=>{
+        if(currplayer !== ' ')return;
+          block_7.innerHTML = "X"
+            if(currplayer == 'X'){
+          block_7.innerHTML = "O"
+          }
+        
+       else if (currplayer == "O") {
+          currplayer = "X";
+        }
+
+      }
+      x_o_8=()=>{
+        if(currplayer !== ' ')return;
+          block_8.innerHTML = "X"
+            if(currplayer == 'X'){
+          block_8.innerHTML = "O"
+          }
+          else if (currplayer == "O") {
+             currplayer = "X";
+           }
+        }
+        x_o_9=()=>{
+        if(currplayer !== ' ')return;
+          block_9.innerHTML = "X"
+          if(currplayer == 'X'){
+          block_9.innerHTML = "O"
+          }
+          else if (currplayer == "O") {
+              currplayer = "X";
+            }
+        }
+      
+      /*  Reset function */
+      reset=()=>{
+        block_1.innerHTML = ''
+        block_2.innerHTML = ''
+        block_3.innerHTML = ''
+        block_4.innerHTML = ''
+        block_5.innerHTML = ''
+        block_6.innerHTML = ''
+        block_7.innerHTML = ''
+        block_8.innerHTML = ''
+        block_9.innerHTML = ''
+      }
+
+
+      /*  Check win Pattern 
+
+      (1,2,3)
+      (1,4,7)
+      (1,5,9)
+      (2,5,8)
+      (4,5,6)
+      (7,8,9)
+      (3,6,9)
+      (3,5,7)
+      */
+      checkwin=()=>{
+       if((block_1.innerHTML == 'X' && block_2.innerHTML == 'X' && block_3.innerHTML == 'X') || (block_1.innerHTML == 'O' || block_2.innerHTML == 'O' || block_3.innerHTML == ')')) {
+        console.log(hello)
+        alert("win x and o both")
+       }
+      }
+      checkwin()
+
+    </script>
+  </body>
+</html>

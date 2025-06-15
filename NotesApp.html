@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes app using HTML, CSS, and JS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background: linear-gradient(0.25turn, rgb(114, 114, 248), rgb(109, 246, 109), rgb(234, 105, 234));
+        }
+        h1{
+            color: white;
+            font-size: 2em;
+            padding-left: 200px;
+            padding-top: 50px;
+        }
+        #first {
+            font-weight: 900;
+            font-size: 1.5em;
+            color: blue;
+        }
+        button{
+            margin-top: 30px;
+            margin-left: 130px;
+            color: black;
+            background: lightblue;
+            border: 2px solid white;
+            padding:15px;
+            border-radius: 40px;
+        }
+        input{
+            margin-left: 120px;
+            margin-top:30px;
+            padding-bottom: 70px;
+            padding-right: 70px;
+            padding-left:20px;
+            padding-top:20px;
+        }
+        span{
+            margin-left: -25px;
+        }
+        #showmessage{
+            color: white;
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+ 
+
+    <span><p id="showmessage"></p></span>
+
+
+    <div class="maincontainer">
+        <h1><i class="fa-solid fa-note-sticky"></i> Notes</h1>
+        <button id="createnote" onclick="addnotes()">
+            <i class="fa-solid fa-pen-to-square" id="first"></i> Create Notes
+        </button>
+    
+        <br><br>
+        <input type="text" placeholder="Enter Your Notes Here" class="inputefornotes" hidden>
+        <span><i class="fa-solid fa-trash second" onclick="deletenote()" hidden></i></span>
+    
+        <input type="text" placeholder="Enter Your Notes Here" class="inputefornotes" hidden>
+        <span><i class="fa-solid fa-trash second" onclick="deletenote()" hidden></i></span>
+    
+        <input type="text" placeholder="Enter Your Notes Here" class="inputefornotes" hidden>
+        <span><i class="fa-solid fa-trash second" onclick="deletenote()" hidden></i></span>
+    
+        <input type="text" placeholder="Enter Your Notes Here" class="inputefornotes" hidden>
+        <span><i class="fa-solid fa-trash second" onclick="deletenote()" hidden></i></span>
+    
+        <input type="text" placeholder="Enter Your Notes Here" class="inputefornotes" hidden>
+        <span><i class="fa-solid fa-trash second" onclick="deletenote()" hidden></i></span>
+    
+        <input type="text" placeholder="Enter Your Notes Here" class="inputefornotes" hidden>
+        <span><i class="fa-solid fa-trash second" onclick="deletenote()" hidden></i></span>
+    
+        <input type="text" placeholder="Enter Your Notes Here" class="inputefornotes" hidden>
+        <span><i class="fa-solid fa-trash second" onclick="deletenote()" hidden></i></span>
+    
+        <input type="text" placeholder="Enter Your Notes Here" class="inputefornotes" hidden>
+        <span><i class="fa-solid fa-trash second" onclick="deletenote()" hidden></i></span>
+    
+        <input type="text" placeholder="Enter Your Notes Here" class="inputefornotes" hidden>
+        <span><i class="fa-solid fa-trash second" onclick="deletenote()" hidden></i></span>
+    </div>
+
+    <script>
+      let message =   document.getElementById("showmessage")
+    let track = 0;
+    
+    const addnotes = () => {
+        let notes = document.querySelectorAll(".inputefornotes");
+        let trashIcons = document.querySelectorAll(".second");
+    
+        if (track < notes.length) {
+            notes[track].removeAttribute("hidden"); 
+            trashIcons[track].removeAttribute("hidden"); 
+            track++;
+        } else {
+            message.innerHTML=("You  reached the maximum limit of notes");
+        }
+    };
+    
+    const deletenote = () => {
+        let notes = document.querySelectorAll(".inputefornotes");
+        let trashIcons = document.querySelectorAll(".second");
+    
+        if (track > 0) {
+            track--; 
+            notes[track].setAttribute("hidden", "true"); 
+            trashIcons[track].setAttribute("hidden", "true");
+        } else {
+            message.innerHTML=("No notes to delete!");
+        }
+    };
+    </script>
+    
+</body>
+</html>

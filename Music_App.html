@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player Using html css and js</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    body{
+        background-color: black;
+    }
+    #first{
+        border-radius: 50%;
+        padding:10px 13px;
+        border:2px solid white;
+        color:rgb(252, 136, 221);
+        margin-right: 210.30px;
+    }
+    #second{
+        border-radius: 50%;
+        padding:10px 13px;
+        border:2px solid white;
+        color:rgb(252, 136, 221);
+        margin-left: 40px;
+        margin-top: 10px;
+    }
+    .box{
+        border: 1px solid blue;
+        background-image: linear-gradient(to right, rgb(194, 175, 175), rgb(250, 84, 208));
+        text-align: center;
+        padding-bottom: 50px;
+        margin: 0px 450px;
+        margin-top: 20px;
+        border-radius: 5px;
+    }
+   img{
+        border-radius: 100%;
+        border: 5px solid white;
+        margin-top: 20px;
+        } 
+        
+        #progress{
+            -webkit-appearance: none;
+            width: 80%;
+            height: 6px;
+            background-color: #f53192;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 30px 0;
+        }
+        #progress::-webkit-slider-thumb{
+            -webkit-appearance: none;
+            background-color: #f53192;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 8px solid #fff;
+            box-shadow : 0px 5px 5px rgba(255,26,26,0.22)
+        }
+
+        .control{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .control div{
+            display:inline flex;
+            width: 60px;
+            height: 60px;
+            margin: 10px;
+            background-color:#fff;
+            border-radius: 50%;
+            color: #f53192;
+            box-shadow: 0px 10px 20px rgba(255,26,26,0.22);
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .control div:nth-child(2){
+            transform: scale(1.5);
+            background: #f53192;
+            color: #fff;
+        }
+</style>
+<body>
+    <div class="box">
+        <button id="first">
+            <
+        </button>
+        <button id="second">
+            ≡
+        </button>
+        <img src="https://trendybeatz.com/images/Luis-Fonsi-Ft-Daddy-Yankee-Despacito-Art.jpg" alt="image not show" height="150px">
+
+        <h1 style="color: white;">Despacito</h1>
+        <p style="color: white;">Luis Fonsi Ft. Puerto Ricon</p>
+        <audio src="assests/despcito mp_3.mp3"   type="audio/mpeg" id="song"></audio>
+        <input type="range" value="0" id="progress">
+        <div class="control">
+            <div><i class="fa-solid fa-backward"></i></div>
+            <div onclick="playpause()"><i class="fa-solid fa-play" id="ctricon"></i></div>
+            <div><i class="fa-solid fa-forward"></i></div>
+        </div>      
+    </div>
+    <script>
+        let progress = document.getElementById("progress")
+        let song = document.getElementById("song")
+        let ctricon = document.getElementById("ctricon")
+
+
+        song.onloadedmetadata   = function(){
+            progress.max=song.duration;
+            progress.value=song.currentTime;
+        }
+
+        playpause=()=>{
+                if(ctricon.classList.contains("fa-pause")){
+                    song.pause();
+                    ctricon.classList.remove("fa-pause")
+                    ctricon.classList.add("fa-play")
+
+                }
+                else{
+                    song.play();
+                    ctricon.classList.add("fa-pause")
+                    ctricon.classList.remove("fa-play")
+                }
+        }
+
+        if(song.play()){
+            setInterval(()=>{
+                progress.value=song.currentTime;
+
+            },500)
+        }
+        progress.oninput= function(){
+            song.play();    
+            song.currentTime = progress.value;
+            ctricon.classList.add("fa-pause")
+            ctricon.classList.remove("fa-play")
+        }
+    </script>
+</body>
+</html>

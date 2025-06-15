@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote generator</title>
+    <style>
+       body{
+        background-color: lightblue;
+       }
+        .maincontainer{
+            border: 1px solid black;
+            margin: 70px 250px;
+            background-color: white;
+            padding: 0px 50px;
+            padding-bottom: 30px;
+            font-family: monospace;
+            border-radius: 20px;            
+        }
+        h1{
+            text-align: center;
+            text-decoration: underline lightblue 5px;
+        
+        }
+        #quotes_here{
+            text-align: center;
+            padding-top: 30px;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        #author{
+            margin-top: 50px;
+            margin-left: 500px;
+        }
+        button{
+            margin-top:170px;
+            background-color: rgb(101, 101, 255);
+            color: white;
+            border-radius: 20px;
+            padding: 10px;
+            border: none;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="maincontainer">
+        <h1>Quote of the Day</h1>
+        <div id="quotes_here">
+            Everything comes to us that belongs to us if we create the capacity to receive it
+        </div>
+        <div id="author">
+            - Ravindranath Tagore
+        </div>
+        <button onclick="getdata()">Next Quote</button>
+    </div>
+    <script>
+        let a = document.getElementById("quotes_here");
+        let b = document.getElementById("author");
+        let url = "https://thequoteshub.com/api/";
+
+        async function getdata(){
+            let responce = await fetch(url);
+            let data = await responce.json();
+            console.log(data);
+            console.log(a)
+            a.innerHTML = data.text;
+            b.innerHTML = `-${data.author}`;
+        }
+        
+    </script>
+</body>
+</html>

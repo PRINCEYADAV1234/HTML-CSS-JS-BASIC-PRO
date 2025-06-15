@@ -1,0 +1,100 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stone Paper Scissor</title>
+
+    <style>
+          body{
+            background-color: lightgray;
+        }
+        img{
+            margin: 20px;
+            background:none ;
+        }
+        
+        button{
+            border-radius:20px;
+            margin: 10px;
+        }
+        .main{
+            display: flex;
+            justify-content: center;
+        }
+        #second{
+            margin-left: 617px;
+            margin-top: -50px;
+        }
+        #friend{
+            margin-left: 390px;
+            margin-top: 80px;
+            
+        }
+        h1{
+            text-align: center;
+            text-decoration: underline;
+        }
+        p{
+            font-size: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+     <h1>Rock Paper Scissors Game</h1>
+    <p>choose your move:</p>
+    <div class="main">
+        <button onclick="playGame('stone')">
+            <img src="https://goodday451999.github.io/Rock-Paper-Scissors-Neo/images/stone.png" width="140px">
+            
+        </button>
+        <button onclick="playGame('paper')">
+            <img src="https://goodday451999.github.io/Rock-Paper-Scissors-Neo/images/paper.png" width="140px">
+        </button>
+        <button onclick="playGame('scissor')">
+            <img src="https://goodday451999.github.io/Rock-Paper-Scissors-Neo/images/scissors.png" width="140px">
+        </button>
+        
+</div>
+    
+
+
+  
+    <h3 id="friend"> Your Score  <span id="userScore">0</span></h3>
+    <h3 id="second"> Computer Score   <span id="computerScore">0</span></h3>
+    <h2 id="winner"> </h2>
+    <script>
+   
+
+        let userScore= 0;
+        let computerScore= 0;
+
+       function playGame(userChoice){
+        let choices = ["stone", "paper", "scissor"];
+        let computerChoice = choices[Math.floor(Math.random() * choices.length)];
+        console.log(userChoice)
+       
+       let result = "";
+       if(userChoice==computerChoice){
+        result = "It's a Tie"
+       }
+       else if (  (userChoice === "stone" && computerChoice === "scissor") ||
+       (userChoice === "paper" && computerChoice === "stone") ||
+       (userChoice === "scissor" && computerChoice === "paper")
+       ){
+        result="You Win !"
+        userScore++;
+       }else{
+        result="computer Wins!"
+        computerScore++
+       }
+    
+       document.getElementById("winner").innerText = `You chose ${userChoice}, Computer chose ${computerChoice}. ${result}`;
+document.getElementById("userScore").innerText = userScore;
+document.getElementById("computerScore").innerText = computerScore;
+    }
+    </script>
+
+</body>
+</html> 

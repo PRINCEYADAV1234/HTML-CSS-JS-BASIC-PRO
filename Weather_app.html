@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather app using the html css and js</title>
+    <style>
+        body{
+    background-image: url('assests/bgimg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+}
+.container{
+    margin:100px 350px;
+    padding: 10px;
+    padding-top: 30px;
+    background: rgba(255, 233, 233, 0.584);
+    padding-left:200px; 
+}
+input{
+    padding:10px;
+    border-radius:4px ;
+    border: none;
+    margin-top: 80px;
+}
+button{
+    background-color: rgb(131, 131, 231);
+    padding: 10px;
+    border: 1px solid white;
+    margin-left: 40px;
+}
+h3{
+    margin-left: 50px;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3><b>Weather App</b></h3>
+        <input type="text" placeholder="Search City Name" id="search_box"><br><br>
+        <button id="searchbtn">Search</button>
+
+        <div class="Weather_result">
+            <h3 id="city">
+                Here show the city 
+            </h3>
+            <h3 id="temp">
+                Here show the temp
+            </h3>
+            <h3 id="wind">
+                Here show the wind speed
+            </h3>
+            <h3 id="Humidity">
+                Here show the humindity
+            </h3>
+        </div>
+    </div>
+    <script>
+         const a = document.getElementById("weather_result");
+ const b = document.getElementById("search_box");
+ const c = document.getElementById("searchbtn");
+
+const url = 'https://api.openweathermap.org/data/2.5/weather?units=matric&q='
+const apikey = '75cb8fa339c1cd867316d3552e568ceb'
+
+
+
+async function checkweather(address) {
+    const response = await fetch (url + address + `&appid=${apikey}`);
+    var data = await response.json()    
+    console.log(data)
+    const city = document.getElementById("city").innerHTML="City : " + data.name;
+    const temp = document.getElementById("temp").innerHTML="Temperature : "+ data.main.temp + " •F";
+    const humidity = document.getElementById("Humidity").innerHTML="Humidity : "+ data.main.humidity;
+    const wind = document.getElementById("wind").innerHTML="Wind Speed : "+ data.wind.speed;
+    console.log(city,temp,humidity,wind)
+}
+c.addEventListener("click",()=>{
+    console.log(b.value);
+    checkweather(b.value);
+})
+    </script>
+</body>
+</html>

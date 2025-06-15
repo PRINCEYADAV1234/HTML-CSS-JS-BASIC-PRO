@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age Calculator</title>
+    <style>
+      * {
+        background-color: blueviolet;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .container {
+        text-align: center;
+      }
+      .text {
+        color: white;
+        font-size: 2.5rem;
+      }
+      span {
+        color: wheat;
+        font-size: 2.7rem;
+      }
+      #users_date {
+        border: none;
+        border-radius: 10px;
+        background: white;
+        padding: 16px;
+        background: blueviolet;
+        padding-right: 50px;
+      }
+      #age {
+        text-align: center;
+        border: 2px solid purple;
+        padding: 10px 30px;
+        border-radius: 10px;
+        margin-left: 10px;
+        background-color: cadetblue;
+      }
+
+      #age:hover {
+        background-color: rgb(128, 10, 238);
+        color: darkmagenta;
+      }
+
+      .jrcontainer{
+        margin-top: 15px;
+        background: lightgray;
+        padding: 50px;
+        border-radius: 10px;
+        margin-left: 29vw;
+        text-align: center;
+        margin-right: 20vw;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="text">Check You'r Current</h1>
+      <span>Age</span>
+    </div>
+
+    <div class="jrcontainer">
+      
+      <input type="date" id="users_date" />
+      <button id="age" onclick="usersage()">Check Age</button>
+    </div>
+
+    <h2 id="result"></h2>
+    <script>
+      let result = document.getElementById("result");
+      let today = new Date();
+      let a = today.getDate();
+      let b = today.getMonth() + 1;
+      let c = today.getFullYear();
+
+      usersage = () => {
+        let users_date = document.getElementById("users_date").value;
+
+        let today = new Date(users_date);
+        let user_year = today.getFullYear();
+        let user_month = today.getMonth() + 1;
+        let users_dates = today.getDate();
+
+        if (c > user_year) {
+          var crr_age_year = c - user_year;
+        }
+        let crr_age_month = b - user_month;
+        let crr_age_day = a - users_dates;
+        if (crr_age_month < 0 || (crr_age_month === 0 && crr_age_day < 0)) {
+          crr_age_year--;
+          crr_age_month += 12;
+        }
+        if (crr_age_day < 0) {
+          let prevMonthDays = new Date(c, b - 1, 0).getDate();
+          crr_age_day += prevMonthDays;
+          crr_age_month--;
+        }
+        result.innerHTML = `You'r Age is ${crr_age_year} years old and ${crr_age_month} month old and ${crr_age_day} days old `;
+      };
+    </script>
+  </body>
+</html>
