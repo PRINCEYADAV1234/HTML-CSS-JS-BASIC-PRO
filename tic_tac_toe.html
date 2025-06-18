@@ -3,326 +3,359 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tic tac toe game in html css js</title>
+    <title>Tic Tac Toe Game using html css or js</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-      * {
-        background: #020024;
-        background: linear-gradient(
-          90deg,
-          rgba(2, 0, 36, 1) 0%,
-          rgba(9, 9, 121, 1) 35%,
-          rgba(0, 212, 255, 1) 100%
-        );
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
-      .container {
+      body {
+        background: linear-gradient(rgb(71, 78, 158));
         text-align: center;
       }
-      h2 {
+      .container_1 {
         text-align: center;
-        color: hotpink;
+        margin-left: 470px;
+        margin-right: 340px;
+        display: flex;
+      }
+      .container_2 {
+        text-align: center;
+        margin-left: 470px;
+        margin-right: 340px;
+        display: flex;
+      }
+      .container_3 {
+        text-align: center;
+        margin-left: 470px;
+        margin-right: 340px;
+        display: flex;
+      }
+      .main_1 {
+        background-color: white;
+        margin-right: 25px;
+        margin-top: 30px;
+        font-weight: bold;
+        color: rgb(255, 56, 6);
+        border-radius: 10px;
+        padding: 30px;
+      }
+      .playagain {
+        margin-top: 50px;
+      }
+      .playagain > button {
+        padding: 15px;
+        background-color: rgb(192, 26, 117);
+        color: black;
+        border: none;
+      } 
+      h1 {
+        color: white;
         text-decoration: underline;
       }
-
-      .row_1 {
+      @media (max-width:347px){
+        .container_1 {
+        text-align: center;
+        margin-left: 10px;
+        margin-right: 340px;
         display: flex;
-        margin-left: 35vw;
-        background: none;
       }
-      .row_2 {
+      .container_2 {
+        text-align: center;
+        margin-left: 10px;
+        margin-right: 340px;
         display: flex;
-        margin-left: 35vw;
-        background: none;
       }
-      .row_3 {
+      .container_3 {
+        text-align: center;
+        margin-left: 10px;
+        margin-right: 340px;
         display: flex;
-        margin-left: 35vw;
-        background: none;
       }
-      #block_1 {
-        height: 15vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 7vw;
-        margin: 20px;
-        size: 30cm;
-        border-radius: 10px;
-        color: purple;
-        background: white;
       }
-      #block_2 {
-        height: 15vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 7vw;
-        margin: 20px;
-        border-radius: 10px;
-        color: purple;
-        background: white;
+      i{
+        color: black;
       }
-      #block_3 {
-        height: 15vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 7vw;
-        margin: 20px;
-        border-radius: 10px;
-        color: purple;
-        background: white;
-      }
-      #block_4 {
-        height: 15vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 7vw;
-        margin: 20px;
-        border-radius: 10px;
-        color: purple;
-        background: white;
-      }
-      #block_5 {
-        height: 15vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 7vw;
-        margin: 20px;
-        border-radius: 10px;
-        color: purple;
-        background: white;
-      }
-      #block_6 {
-        height: 15vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 7vw;
-        margin: 20px;
-        border-radius: 10px;
-        color: purple;
-        background: white;
-      }
-      #block_7 {
-        height: 15vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 7vw;
-        margin: 20px;
-        border-radius: 10px;
-        color: purple;
-        background: white;
-      }
-      #block_8 {
-        height: 15vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 7vw;
-        margin: 20px;
-        border-radius: 10px;
-        color: purple;
-        background: white;
-      }
-      #block_9 {
-        height: 15vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 7vw;
-        margin: 20px;
-        border-radius: 10px;
-        color: purple;
-        background: white;
-      }
-      #reset {
-        border: none;
-        padding: 15px 30px;
-        margin: 15px;
-        background: brown;
-        color: dodgerblue;
-        border-radius: 10px;
-      }
-      #reset:hover {
-        background: gold;
-        color: grey;
+      #showresult{
+        text-align: center;
+        font-size: 30px;
+        color: white;
+        margin-top: 10px;
       }
     </style>
   </head>
   <body>
-    <h2>Tic Tac Toe</h2>
-    <div class="container">
-      <div class="row_1">
-        <div id="block_1" onclick="x_o_1()"></div>
-        <div id="block_2" onclick="x_o_2()"></div>
-        <div id="block_3" onclick="x_o_3()"></div>
-      </div>
+    <h1>Tic Tac TOE GAME</h1>
 
-      <div class="row_2">
-        <div id="block_4" onclick="x_o_4()"></div>
-        <div id="block_5" onclick="x_o_5()"></div>
-        <div id="block_6" onclick="x_o_6()"></div>
-      </div>
-
-      <div class="row_3">
-        <div id="block_7" onclick="x_o_7()"></div>
-        <div id="block_8" onclick="x_o_8()"></div>
-        <div id="block_9" onclick="x_o_9()"></div>
-      </div>
-      <button id="reset" onclick="reset()">Reset</button>
+    <i class="fa-solid fa-circle-i"></i>
+    <div class="container_1">
+      <div class="main_1" id="box_1" onclick="xo_1()"></div>
+      <div class="main_1" id="box_2" onclick="xo_2()"></div>
+      <div class="main_1" id="box_3" onclick="xo_3()"></div>
+    </div>
+    <div class="container_2">
+      <div class="main_1" id="box_4" onclick="xo_4()"></div>
+      <div class="main_1" id="box_5" onclick="xo_5()"></div>
+      <div class="main_1" id="box_6" onclick="xo_6()"></div>
     </div>
 
+    <div class="container_3">
+      <div class="main_1" id="box_7" onclick="xo_7()"></div>
+      <div class="main_1" id="box_8" onclick="xo_8()"></div>
+      <div class="main_1" id="box_9" onclick="xo_9()"></div>
+    </div>
+
+    <div class="playagain">
+      <button onclick="RESET()">RESET</button>
+    </div>
+    <div class="result" id="showresult">
+
+    </div>
+    <!-- <audio src="./sounds/mixkit-quick-win-video-game-notification-269.wav" id="audio"></audio>
+    <audio src="./sounds/mixkit-quick-win-video-game-notification-269.wav" id="audio_1"></audio> -->
     <script>
-      let block_1 = document.getElementById("block_1")
-      let block_2 = document.getElementById("block_2")
-      let block_3 = document.getElementById("block_3")
-      let block_4 = document.getElementById("block_4")
-      let block_5 = document.getElementById("block_5")
-      let block_6 = document.getElementById("block_6")
-      let block_7 = document.getElementById("block_7")
-      let block_8 = document.getElementById("block_8")
-      let block_9 = document.getElementById("block_9")
+      let a = document.getElementById("box_1");
+      let b = document.getElementById("box_2");
+      let c = document.getElementById("box_3");
+      let d = document.getElementById("box_4");
+      let e = document.getElementById("box_5");
+      let f = document.getElementById("box_6");
+      let g = document.getElementById("box_7");
+      let h = document.getElementById("box_8");
+      let i = document.getElementById("box_9");
+      let showresult = document.getElementById("showresult");
+      RESET = () => {
+        a.innerHTML = "";
+        b.innerHTML = "";
+        c.innerHTML = "";
+        d.innerHTML = "";
+        e.innerHTML = "";
+        f.innerHTML = "";
+        g.innerHTML = "";
+        h.innerHTML = "";
+        i.innerHTML = "";
+        showresult.innerHTML = "";
+      };
 
-      let currplayer = 'X'
-      x_o_1=()=>{
-        if(currplayer !== ' ') return;
-          block_1.innerHTML = "X"
-          if(currplayer == 'X'){
-          block_1.innerHTML = "O"
-          }
+    //  let audio = document.getElementById("audio")
+      let current = "X";
+      xo_1 = () => {
+        if(a.innerHTML !=="")return;
+        a.innerHTML = current;
         
-        else if (currplayer == "O") {
-          currplayer = "X";
-        }
+        if (current == "X") {
+          current = "O";  
+        } 
+        else {
+        current = "X";
       }
-      x_o_2=()=>{
-        if(currplayer !== ' ')return;
-          block_2.innerHTML = "X"
-            if(currplayer == 'X'){
-          block_2.innerHTML = "O"
-          }
+
+      checkwinner();
+      };
+      xo_2 = () => {
+        if(b.innerHTML!=="")return;
+        b.innerHTML = current;
         
-         else if (currplayer == "O") {
-          currplayer = "X";
-        }
-      }
-      x_o_3=()=>{
-        if(currplayer !== ' ')return;
-          block_3.innerHTML = "X"
-            if(currplayer == 'X'){
-          block_3.innerHTML = "O"
-          }
-        
-       else if (currplayer == "O") {
-          currplayer = "X";
-        }
-      }
-      x_o_4=()=>{
-        if(currplayer !== ' ')return;
-          block_4.innerHTML = "X"
-            if(currplayer == 'X'){
-          block_4.innerHTML = "O"
-          }
-        
-       else if (currplayer == "O") {
-          currplayer = "X";
-        }
-      }
-    
-      x_o_5=()=>{
-        if(currplayer !== ' ')return;
-          block_5.innerHTML = "X"
-            if(currplayer == 'X'){
-          block_5.innerHTML = "O"
+        if (current == "X") {
+          current = "O";
           
-        }
-       else if (currplayer == "O") {
-          currplayer = "X";
-        }
-
-      }
-      x_o_6=()=>{
-        if(currplayer !== ' ')return;
-          block_6.innerHTML = "X"
-            if(currplayer == 'X'){
-          block_6.innerHTML = "O"
-          }
+        } 
+        else if(current =='O'){
+          current = 'X'
         
-      else if (currplayer == "O") {
-          currplayer = "X";
         }
 
-      }
-      x_o_7=()=>{
-        if(currplayer !== ' ')return;
-          block_7.innerHTML = "X"
-            if(currplayer == 'X'){
-          block_7.innerHTML = "O"
-          }
+        checkwinner();
+      };
+      xo_3 = () => {
+        if(c.innerHTML!=="")return;
+        c.innerHTML = current;
+        if (current == "X") {
+          current = "O";
+        } else if (current == "O") {
+          current = "X";
+        }
+
+        checkwinner();
+
+
+      };
+      xo_4 = () => {
+        if(d.innerHTML!=="")return;
+        d.innerHTML = current;
         
-       else if (currplayer == "O") {
-          currplayer = "X";
+
+        if (current == "X") {
+          current = "O";
+        } else if (current == "O") {
+          current = "X";
         }
 
-      }
-      x_o_8=()=>{
-        if(currplayer !== ' ')return;
-          block_8.innerHTML = "X"
-            if(currplayer == 'X'){
-          block_8.innerHTML = "O"
-          }
-          else if (currplayer == "O") {
-             currplayer = "X";
-           }
+        checkwinner();
+
+      };
+      xo_5 = () => {
+        if(e.innerHTML!=="")return;
+
+        e.innerHTML = current;
+        
+        if (current == "X") {
+          current = "O";
+        } else if (current == "O") {
+          current = "X";
         }
-        x_o_9=()=>{
-        if(currplayer !== ' ')return;
-          block_9.innerHTML = "X"
-          if(currplayer == 'X'){
-          block_9.innerHTML = "O"
-          }
-          else if (currplayer == "O") {
-              currplayer = "X";
-            }
+
+        checkwinner();
+
+      };
+      xo_6 = () => {
+        if(f.innerHTML!=="")return;
+        
+        f.innerHTML = current;
+        
+        if (current == "X") {
+          current = "O";
+        } else if (current == "O") {
+          current = "X";
         }
-      
-      /*  Reset function */
-      reset=()=>{
-        block_1.innerHTML = ''
-        block_2.innerHTML = ''
-        block_3.innerHTML = ''
-        block_4.innerHTML = ''
-        block_5.innerHTML = ''
-        block_6.innerHTML = ''
-        block_7.innerHTML = ''
-        block_8.innerHTML = ''
-        block_9.innerHTML = ''
+        
+        checkwinner();
+      };
+      xo_7 = () => {
+        if(g.innerHTML!=="")return;
+        
+        g.innerHTML = current;
+        
+        
+        if (current == "X") {
+          current = "O";
+        } else if (current == "O") {
+          current = "X";
+        }
+        checkwinner();
+      };
+      xo_8 = () => {
+        if(h.innerHTML!=="")return;
+        h.innerHTML = current;
+        
+
+        if (current == "X") {
+          current = "O";
+        } else if (current == "O") {
+          current = "X";
+        }
+        
+        checkwinner();
+      };
+      xo_9 = () => {
+        if(i.innerHTML!=="")return;
+        
+        i.innerHTML = current;
+        
+        if (current == "X") {
+          current = "O";
+        } else if (current == "O") {
+          current = "X";
+        }
+
+        checkwinner();
+        
+      };
+     /* check for win conditions
+        (a,b,c)
+        (a,d,g)
+        (a,e,i)
+        (b,e,h) 
+        (c,f,i) 
+        (c,e,g) 
+        (d,e,f)
+        (g,h,i) 
+
+        */
+
+        checkwinner=()=>{
+        if((a.innerHTML=='X' && b.innerHTML=='X' && c.innerHTML=='X')||(a.innerHTML=='O' && b.innerHTML=='O' && c.innerHTML=='O')){
+          console.log("winner is: "+ a.innerHTML)
+          showresult.innerHTML = `Winner is: ${a.innerHTML}`
+           d.innerHTML = "";
+           e.innerHTML = "";
+          f.innerHTML = "";
+          g.innerHTML = "";
+          h.innerHTML = "";
+          i.innerHTML = "";
+        }
+        else if((a.innerHTML=='X' && d.innerHTML=='X' && g.innerHTML=='X')||(a.innerHTML=='O' && d.innerHTML=='O' && g.innerHTML=='O')){
+          console.log("winner is: "+ a.innerHTML)
+          showresult.innerHTML = `Winner is: ${a.innerHTML}`
+        b.innerHTML = "";
+        c.innerHTML = ""; 
+        e.innerHTML = "";
+        f.innerHTML = "";
+        h.innerHTML = "";
+        i.innerHTML = "";
+        }
+      else  if((a.innerHTML=='X' && e.innerHTML=='X' && i.innerHTML=='X')||(a.innerHTML=='O' && e.innerHTML=='O' &&  i.innerHTML=='O')){
+          console.log("winner is: "+ a.innerHTML)
+          showresult.innerHTML = `Winner is: ${a.innerHTML}`
+        b.innerHTML = "";
+        c.innerHTML = "";
+        d.innerHTML = "";
+        f.innerHTML = "";
+        g.innerHTML = "";
+        h.innerHTML = "";
+        }
+       else if((b.innerHTML=='X' && e.innerHTML=='X' && h.innerHTML=='X')||(b.innerHTML=='O' && e.innerHTML=='O' && h.innerHTML=='O')){
+          console.log("winner is: "+  b.innerHTML)
+          showresult.innerHTML = `Winner is: ${b.innerHTML}`
+          a.innerHTML = "";
+        c.innerHTML = "";
+        d.innerHTML = "";
+        f.innerHTML = "";
+        g.innerHTML = "";
+        i.innerHTML = "";
+        }
+       else if((c.innerHTML=='X' && f.innerHTML=='X' && i.innerHTML=='X')||(c.innerHTML=='O' && f.innerHTML=='O' && i.innerHTML=='O')){
+          console.log("winner is: "+ c.innerHTML)
+          showresult.innerHTML = `Winner is: ${c.innerHTML}`
+        a.innerHTML = "";
+        b.innerHTML = "";
+       
+        d.innerHTML = "";
+        e.innerHTML = "";
+
+        g.innerHTML = "";
+        h.innerHTML = "";
+        }
+       else if((c.innerHTML=='X' && e.innerHTML=='X' && g.innerHTML=='X')||(c.innerHTML=='O' && e.innerHTML=='O' && g.innerHTML=='O')){
+          console.log("winner is: "+  c.innerHTML)
+          showresult.innerHTML = `Winner is: ${c.innerHTML}`
+        a.innerHTML = "";
+        b.innerHTML = "";
+        f.innerHTML="";
+        d.innerHTML = "";
+        h.innerHTML = "";
+        i.innerHTML = "";
+        }
+        else if((d.innerHTML=='X' && e.innerHTML=='X' && f.innerHTML=='X')||(d.innerHTML=='O' && e.innerHTML=='O' && f.innerHTML=='O')){
+          console.log("winner is: "+ d.innerHTML)
+          showresult.innerHTML = `Winner is: ${d.innerHTML}`
+          a.innerHTML = "";
+        b.innerHTML = "";
+        c.innerHTML = "";
+        g.innerHTML = "";
+        h.innerHTML = "";
+        i.innerHTML = "";
+        }
+       else if((g.innerHTML=='X' && h.innerHTML=='X' && i.innerHTML=='X')||(g.innerHTML=='O' && h.innerHTML=='O' && i.innerHTML=='O')){
+          console.log("winner is: "+ g.innerHTML)
+          showresult.innerHTML = `Winner is: ${g.innerHTML}`
+          a.innerHTML = "";
+        b.innerHTML = "";
+        c.innerHTML = "";
+        d.innerHTML = "";
+        e.innerHTML = "";
+        f.innerHTML = "";
+        }
       }
-
-
-      /*  Check win Pattern 
-
-      (1,2,3)
-      (1,4,7)
-      (1,5,9)
-      (2,5,8)
-      (4,5,6)
-      (7,8,9)
-      (3,6,9)
-      (3,5,7)
-      */
-      checkwin=()=>{
-       if((block_1.innerHTML == 'X' && block_2.innerHTML == 'X' && block_3.innerHTML == 'X') || (block_1.innerHTML == 'O' || block_2.innerHTML == 'O' || block_3.innerHTML == ')')) {
-        console.log(hello)
-        alert("win x and o both")
-       }
-      }
-      checkwin()
-
     </script>
   </body>
 </html>
+
